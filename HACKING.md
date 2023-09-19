@@ -148,7 +148,7 @@ fix them respectively. Customization available using the `FORMAT_PATTERNS` and
 
 #### `run-exe`
 
-Runs the executable target `modular-eda_exe`.
+Runs the executable target `ModularEda`.
 
 #### `spell-check` and `spell-fix`
 

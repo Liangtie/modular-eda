@@ -1,5 +1,5 @@
 install(
-    TARGETS modular-eda_exe
+    TARGETS ModularEda
     RUNTIME COMPONENT modular-eda_Runtime
 )
 

@@ -7,10 +7,10 @@ endif()
 
 add_custom_target(
     run-exe
-    COMMAND modular-eda_exe
+    COMMAND ModularEda
     VERBATIM
 )
-add_dependencies(run-exe modular-eda_exe)
+add_dependencies(run-exe ModularEda)
 
 option(BUILD_MCSS_DOCS "Build documentation using Doxygen and m.css" OFF)
 if(BUILD_MCSS_DOCS)

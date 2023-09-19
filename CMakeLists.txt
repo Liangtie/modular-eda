@@ -13,34 +13,30 @@ project(
 include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
 
-# ---- Declare library ----
 
-add_library(
-    modular-eda_lib OBJECT
-    source/lib.cpp
-)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
 
-target_include_directories(
-    modular-eda_lib ${warning_guard}
-    PUBLIC
-    "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/source>"
-)
-
-target_compile_features(modular-eda_lib PUBLIC cxx_std_20)
-
-find_package(fmt REQUIRED)
-target_link_libraries(modular-eda_lib PRIVATE fmt::fmt)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network)
 
 # ---- Declare executable ----
 
-add_executable(modular-eda_exe source/main.cpp)
-add_executable(modular-eda::exe ALIAS modular-eda_exe)
+qt_add_executable(ModularEda source/main.cpp)
 
-set_property(TARGET modular-eda_exe PROPERTY OUTPUT_NAME modular-eda)
 
-target_compile_features(modular-eda_exe PRIVATE cxx_std_20)
+set_target_properties(ModularEda PROPERTIES
+    WIN32_EXECUTABLE TRUE
+    MACOSX_BUNDLE TRUE
+)
 
-target_link_libraries(modular-eda_exe PRIVATE modular-eda_lib)
+target_link_libraries(ModularEda PUBLIC
+    Qt::Core
+    Qt::Gui
+    Qt::Widgets
+)
+
+
+target_compile_features(ModularEda PRIVATE cxx_std_20)
 
 # ---- Install rules ----
 

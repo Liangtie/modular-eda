@@ -14,7 +14,6 @@ include(Catch)
 add_executable(modular-eda_test source/modular-eda_test.cpp)
 target_link_libraries(
     modular-eda_test PRIVATE
-    modular-eda_lib
     Catch2::Catch2WithMain
 )
 target_compile_features(modular-eda_test PRIVATE cxx_std_20)
